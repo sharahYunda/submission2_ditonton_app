@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:ditonton/data/models/tvseries_model.dart';
 import 'package:equatable/equatable.dart';
 

@@ -5,36 +5,34 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   final seriesModel = TVSeriesModel(
     backdropPath: 'backdropPath',
+    firstAirDate: "2021-09-03",
     genreIds: [1, 2, 3],
     id: 1,
-    overview: 'overview',
-    posterPath: 'posterPath',
-    popularity: 1,
-    voteAverage: 1,
-    voteCount: 1,
     name: 'name',
-    firstAirDate: 'firstAirDate',
+    originCountry: ["US"],
     originalLanguage: 'originalLanguage',
     originalName: 'originalName',
-    originCountry: [
-      'originCountry',
-    ],
+    overview: 'overview',
+    popularity: 18.591,
+    posterPath: 'posterPath',
+    voteAverage: 9.4,
+    voteCount: 2710,
   );
 
   final seriestV = TVSeries(
     backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3, 4],
+    firstAirDate: "2021-09-03",
+    genreIds: [1, 2, 3],
     id: 1,
-    overview: 'overview',
-    popularity: 1,
-    posterPath: 'posterPath',
-    voteAverage: 1,
-    voteCount: 1,
     name: 'name',
-    firstAirDate: 'firstAirDate',
+    originCountry: ["US"],
     originalLanguage: 'originalLanguage',
     originalName: 'originalName',
-    originCountry: ['originCountry'],
+    overview: 'overview',
+    popularity: 18.591,
+    posterPath: 'posterPath',
+    voteAverage: 9.4,
+    voteCount: 2710,
   );
 
   test('should be a subclass of Movie entity', () async {

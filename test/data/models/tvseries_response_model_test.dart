@@ -8,21 +8,19 @@ import '../../json_reader.dart';
 
 void main() {
   final seriesModel = TVSeriesModel(
-    backdropPath: "/path.jpg",
-    genreIds: [1, 2, 3, 4],
-    id: 1,
-    overview: 'overview',
     posterPath: 'posterPath',
+    backdropPath: 'backdropPath',
+    firstAirDate: "2021-09-03",
+    genreIds: [1, 2, 3],
+    id: 1,
+    name: 'name',
+    originCountry: ["US"],
+    originalLanguage: 'originalLanguage',
+    originalName: 'originalName',
+    overview: 'overview',
     popularity: 1,
     voteAverage: 1,
     voteCount: 1,
-    name: 'name',
-    firstAirDate: 'firstAirDate',
-    originalLanguage: 'en',
-    originalName: 'originalName',
-    originCountry: [
-      'US',
-    ],
   );
   final tSeriesResponseModel =
       TVSeriesResponse(tvSeriesList: <TVSeriesModel>[seriesModel]);
@@ -30,7 +28,7 @@ void main() {
     test('should return a valid model from JSON', () async {
       // arrange
       final Map<String, dynamic> jsonMap =
-          json.decode(readJson('dummy_data/now_playing.json'));
+          json.decode(readJson('dummy_data/on_the_air.json'));
       // act
       final result = TVSeriesResponse.fromJson(jsonMap);
       // assert
@@ -48,19 +46,19 @@ void main() {
       final expectedJsonMap = {
         "results": [
           {
-            "backdrop_path": "/path.jpg",
-            "genre_ids": [1, 2, 3, 4],
+            "poster_path": "posterPath",
+            "backdrop_path": "backdropPath",
+            "first_air_date": "2021-09-03",
+            "genre_ids": [1, 2, 3],
             "id": 1,
+            "name": "name",
+            "origin_country": ["US"],
+            "original_language": "originalLanguage",
+            "original_name": "originalName",
             "overview": "overview",
-            "poster_path": "/path.jpg",
             "popularity": 1,
             "vote_average": 1,
-            "vote_count": 1,
-            "name": "name",
-            "firstAirDate": "firstAirDate",
-            "original_language": "en",
-            "original_name": "original Name",
-            "origin_country": ["US"],
+            "vote_count": 1
           }
         ],
       };

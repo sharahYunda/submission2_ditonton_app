@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:ditonton/data/datasources/tvseries_remote_data_source.dart';
 import 'package:ditonton/data/models/tvseries_detail_model.dart';
@@ -9,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 
 import '../../json_reader.dart';
-import '../../helpers/test_helper.mocks.dart';
+import '../../helpers/tvseries_test_helper.mocks.dart';
 
 void main() {
   const API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
@@ -57,7 +58,7 @@ void main() {
 
   group('get Popular TV Series', () {
     final ttvSeriesList =
-        TVSeriesResponse.fromJson(json.decode(readJson('dummy_data/tv_popular.json')))
+        TVSeriesResponse.fromJson(json.decode(readJson('dummy_data/popular_tvseries.json')))
             .tvSeriesList;
 
     test('should return list of TV Series when response is success (200)',
@@ -65,7 +66,7 @@ void main() {
       // arrange
       when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/popular?$API_KEY')))
           .thenAnswer((_) async =>
-              http.Response(readJson('dummy_data/tv_popular.json'), 200));
+              http.Response(readJson('dummy_data/popular_tvseries.json'), 200));
       // act
       final result = await dataSource.getPopularTVSeries();
       // assert
@@ -94,7 +95,11 @@ void main() {
       // arrange
       when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/top_rated?$API_KEY')))
           .thenAnswer((_) async =>
-              http.Response(readJson('dummy_data/tv_top_rated.json'), 200));
+              http.Response(readJson('dummy_data/tv_top_rated.json'), 200,
+                  headers: {
+                    HttpHeaders.contentTypeHeader:
+                    'application/json; charset=utf-8',
+                  }));
       // act
       final result = await dataSource.getTopRatedTVSeries();
       // assert
@@ -122,7 +127,11 @@ void main() {
       // arrange
       when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/$tId?$API_KEY')))
           .thenAnswer((_) async =>
-              http.Response(readJson('dummy_data/tv_detail.json'), 200));
+              http.Response(readJson('dummy_data/tv_detail.json'), 200,
+                  headers: {
+                    HttpHeaders.contentTypeHeader:
+                    'application/json; charset=utf-8',
+                  }));
       // act
       final result = await dataSource.getTVSeriesDetail(tId);
       // assert
@@ -175,16 +184,16 @@ void main() {
 
   group('search tv series', () {
     final tSearchResult = TVSeriesResponse.fromJson(
-            json.decode(readJson('dummy_data/search_moon_knight_tv.json')))
+            json.decode(readJson('dummy_data/search_halo_series.json')))
         .tvSeriesList;
-    final tQuery = 'Moon Knight';
+    final tQuery = 'Halo';
 
     test('should return list of tv series when response code is 200', () async {
       // arrange
       when(mockHttpClient
-              .get(Uri.parse('$BASE_URL/search/search/tv?$API_KEY&query=$tQuery')))
+              .get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=$tQuery')))
           .thenAnswer((_) async => http.Response(
-              readJson('dummy_data/search_moon_knight_tv.json'), 200));
+              readJson('dummy_data/search_halo_series.json'), 200));
       // act
       final result = await dataSource.searchTVSeries(tQuery);
       // assert
@@ -195,7 +204,7 @@ void main() {
         () async {
       // arrange
       when(mockHttpClient
-              .get(Uri.parse('$BASE_URL/search/search/tv?$API_KEY&query=$tQuery')))
+              .get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=$tQuery')))
           .thenAnswer((_) async => http.Response('Not Found', 404));
       // act
       final call = dataSource.searchTVSeries(tQuery);

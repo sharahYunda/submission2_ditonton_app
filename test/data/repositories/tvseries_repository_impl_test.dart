@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:ditonton/data/models/genre_model.dart';
+import 'package:ditonton/data/models/season_tvseries_model.dart';
 import 'package:ditonton/data/models/tvseries_detail_model.dart';
 import 'package:ditonton/data/models/tvseries_model.dart';
 import 'package:ditonton/data/repositories/tvseries_repository_impl.dart';
@@ -28,43 +30,41 @@ void main() {
   });
 
   final ttvSeriesModel = TVSeriesModel(
-      backdropPath: "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg",
-      firstAirDate: "2022-03-24",
-      genreIds: [10759, 10765],
-      id: 52814,
-      name: "Halo",
-      originCountry: ["US"],
-      originalLanguage: "en",
-      originalName: "Halo",
-      overview:
-      "Depicting an epic 26th-century conflict between humanity and an alien threat known as the Covenant, the series weaves deeply drawn personal stories with action, adventure and a richly imagined vision of the future.",
-      popularity: 7348.55,
-      posterPath: "/nJUHX3XL1jMkk8honUZnUmudFb9.jpg",
-      voteAverage: 8.7,
-      voteCount: 472
+    backdropPath: 'backdropPath',
+    firstAirDate: "2021-09-03",
+    genreIds: [1, 2, 3],
+    id: 1,
+    name: 'name',
+    originCountry: ["US"],
+    originalLanguage: 'originalLanguage',
+    originalName: 'originalName',
+    overview: 'overview',
+    popularity: 18.591,
+    posterPath: 'posterPath',
+    voteAverage: 9.4,
+    voteCount: 2710,
   );
 
   final tTVSeries = TVSeries(
-      backdropPath: "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg",
-      firstAirDate: "2022-03-24",
-      genreIds: [10759, 10765],
-      id: 52814,
-      name: "Halo",
-      originCountry: ["US"],
-      originalLanguage: "en",
-      originalName: "Halo",
-      overview:
-      "Depicting an epic 26th-century conflict between humanity and an alien threat known as the Covenant, the series weaves deeply drawn personal stories with action, adventure and a richly imagined vision of the future.",
-      popularity: 7348.55,
-      posterPath: "/nJUHX3XL1jMkk8honUZnUmudFb9.jpg",
-      voteAverage: 8.7,
-      voteCount: 472
+    backdropPath: 'backdropPath',
+    firstAirDate: "2021-09-03",
+    genreIds: [1, 2, 3],
+    id: 1,
+    name: 'name',
+    originCountry: ["US"],
+    originalLanguage: 'originalLanguage',
+    originalName: 'originalName',
+    overview: 'overview',
+    popularity: 18.591,
+    posterPath: 'posterPath',
+    voteAverage: 9.4,
+    voteCount: 2710,
   );
 
   final tTVSeriesModelList = <TVSeriesModel>[ttvSeriesModel];
   final tTVSeriesList = <TVSeries>[tTVSeries];
 
-  group('Now Playing TV Series', () {
+  group('On the air TV Series', () {
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
@@ -191,25 +191,31 @@ void main() {
     final tId = 1;
     final tTVSeriesResponse = TVSeriesDetailResponse(
       adult: false,
-      popularity: 1,
-      posterPath: 'posterPath',
-      name: 'name',
-      type: 'type',
-      numberOfEpisodes: 1,
-      numberOfSeasons: 1,
-      seasons: [],
-      episodeRunTime: [1],
-      genres: [],
+      backdropPath: "/4g5gK5eGWZg8swIZl6eX2AoJp8S.jpg",
+      episodeRunTime: [42],
+      genres: [GenreModel(id: 18, name: 'Drama')],
+      homepage: "https://www.telemundo.com/shows/pasion-de-gavilanes",
       id: 1,
-      overview: 'overview',
-      voteCount: 1,
-      tagline: 'tagline',
-      originalName: 'originalName',
-      homepage: 'homepage',
-      voteAverage: 1,
-      originalLanguage: 'originalLanguage',
-      backdropPath: 'backdropPath',
-      status: 'status',
+      name: "name",
+      numberOfEpisodes: 259,
+      numberOfSeasons: 2,
+      originalName: "Pasión de gavilanes",
+      overview: "overview",
+      popularity: 1747.047,
+      posterPath: "posterPath",
+      seasons: [
+        SeasonTVSeriesModel(
+          episodeCount: 188,
+          id: 72643,
+          name: "Season 1",
+          posterPath: "/elrDXqvMIX3EcExwCenQMVVmnvd.jpg",
+          seasonNumber: 1,
+        )
+      ],
+      status: "Returning Series",
+      type: "Scripted",
+      voteAverage: 7.6,
+      voteCount: 1803,
     );
 
     test(

@@ -25,29 +25,28 @@ void main() {
       });
   });
 
-  final tMovie = TVSeries(
-      backdropPath: "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg",
-      firstAirDate: "2022-03-24",
-      genreIds: [10759, 10765],
-      id: 52814,
-      name: "Halo",
-      originCountry: ["US"],
-      originalLanguage: "en",
-      originalName: "Halo",
-      overview:
-      "Depicting an epic 26th-century conflict between humanity and an alien threat known as the Covenant, the series weaves deeply drawn personal stories with action, adventure and a richly imagined vision of the future.",
-      popularity: 7348.55,
-      posterPath: "/nJUHX3XL1jMkk8honUZnUmudFb9.jpg",
-      voteAverage: 8.7,
-      voteCount: 472
+  final tTVSeries = TVSeries(
+    backdropPath: 'backdropPath',
+    genreIds: [1, 2, 3],
+    id: 1,
+    overview: 'overview',
+    popularity: 1,
+    posterPath: 'posterPath',
+    voteAverage: 1,
+    voteCount: 1,
+    firstAirDate: 'firstAirDate',
+    name: 'name',
+    originalLanguage: 'originalLanguage',
+    originalName: 'originalName',
+    originCountry: ['originCountry'],
   );
 
-  final tMovieList = <TVSeries>[tMovie];
+  final tTVSeriesList = <TVSeries>[tTVSeries];
 
   test('should change state to loading when usecase is called', () async {
     // arrange
     when(mockGetTopRatedTVSeries.execute())
-        .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tTVSeriesList));
     // act
     notifier.fetchTopRatedTVSeries();
     // assert
@@ -58,12 +57,12 @@ void main() {
   test('should change TVSeries data when data is gotten successfully', () async {
     // arrange
     when(mockGetTopRatedTVSeries.execute())
-        .thenAnswer((_) async => Right(tMovieList));
+        .thenAnswer((_) async => Right(tTVSeriesList));
     // act
     await notifier.fetchTopRatedTVSeries();
     // assert
     expect(notifier.state, RequestState.Loaded);
-    expect(notifier.tvSeries, tMovieList);
+    expect(notifier.tvSeries, tTVSeriesList);
     expect(listenerCallCount, 2);
   });
 

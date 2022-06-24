@@ -1,13 +1,9 @@
 import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/data/models/tvseries_table.dart';
-import 'package:ditonton/data/models/season_tvseries_model.dart';
-import 'package:ditonton/data/models/tvseries_detail_model.dart';
-import 'package:ditonton/data/models/tvseries_model.dart';
-import 'package:ditonton/data/models/tvseries_response.dart';
-import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/season_tvseries.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/domain/entities/tv_series_detail.dart';
 
@@ -67,7 +63,7 @@ final testMovieMap = {
 };
 
 // tv series data
-final testTVSeriesModel = TVSeriesModel(
+final testTVSeries = TVSeries(
     backdropPath: "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg",
     firstAirDate: "2022-03-24",
     genreIds: [10759, 10765],
@@ -81,56 +77,16 @@ final testTVSeriesModel = TVSeriesModel(
     popularity: 7348.55,
     posterPath: "/nJUHX3XL1jMkk8honUZnUmudFb9.jpg",
     voteAverage: 8.7,
-    voteCount: 472);
-
-final testTVSeriesModelList = <TVSeriesModel>[testTVSeriesModel];
-
-final testTVSeries = testTVSeriesModel.toEntity();
-
-final testTVSeriesList = <TVSeries>[testTVSeries];
-
-final testTVSeriesResponse =
-TVSeriesResponse(tvSeriesList: testTVSeriesModelList);
-
-final testTVSeriesDetailResponse = TVSeriesDetailResponse(
-  adult: false,
-  backdropPath: '',
-  genres: [GenreModel(id: 1, name: 'Action')],
-  id: 2,
-  episodeRunTime: [],
-  homepage: "https://google.com",
-  numberOfEpisodes: 34,
-  name: 'name',
-  numberOfSeasons: 2,
-  originalLanguage: 'en',
-  originalName: 'name',
-  overview: 'overview',
-  popularity: 12.323,
-  posterPath: '',
-  seasons: [
-    SeasonTVSeriesModel(
-      airDate: '',
-      episodeCount: 7,
-      id: 1,
-      name: 'Winter',
-      overview: 'overview',
-      posterPath: 'posterPath',
-      seasonNumber: 2,
-    )
-  ],
-  status: 'status',
-  tagline: 'tagline',
-  type: 'Scripted',
-  voteAverage: 3,
-  voteCount: 3,
+    voteCount: 472
 );
+final testTVSeriesList = [testTVSeries];
 
-final testTVSeriesDetailResponseEntity = testTVSeriesDetailResponse.toEntity();
-
-final testTVSeriesTable =
-TVSeriesTable.fromEntity(testTVSeriesDetailResponseEntity);
-
-final testTVSeriesTableList = <TVSeriesTable>[testTVSeriesTable];
+final testTVSeriesTable = TVSeriesTable(
+    id: 1,
+    name: 'name',
+    posterPath: 'posterPath',
+    overview: 'overview',
+);
 
 final testWatchlistTVSeries = TVSeries.watchlist(
     id: 1,
@@ -148,31 +104,29 @@ final testTVSeriesMaping = {
 
 final testTVSeriesDetail = TVSeriesDetail(
   adult: false,
-  posterPath: 'posterPath',
-  name: 'name',
-  numberOfEpisodes: 1,
-  numberOfSeasons: 1,
-  seasons: [],
-  episodeRunTime: [1],
-  genres: [],
+  backdropPath: "/4g5gK5eGWZg8swIZl6eX2AoJp8S.jpg",
+  episodeRunTime: [42],
+  genres: [Genre(id: 18, name: 'Drama')],
+  homepage: "https://www.telemundo.com/shows/pasion-de-gavilanes",
   id: 1,
-  overview: 'overview',
-  voteCount: 1,
-  voteAverage: 1,
-  backdropPath: 'backdropPath',
+  name: "name",
+  numberOfEpisodes: 259,
+  numberOfSeasons: 2,
+  originalName: "Pasión de gavilanes",
+  overview: "overview",
+  popularity: 1747.047,
+  posterPath: "posterPath",
+  seasons: [
+    Season(
+      episodeCount: 188,
+      id: 72643,
+      name: "Season 1",
+      posterPath: "/elrDXqvMIX3EcExwCenQMVVmnvd.jpg",
+      seasonNumber: 1,
+    )
+  ],
+  status: "Returning Series",
+  type: "Scripted",
+  voteAverage: 7.6,
+  voteCount: 1803,
 );
-
-//seasons
-final testSeasonTVSeriesModel = SeasonTVSeriesModel(
-  id: 1,
-  name: 'season',
-  posterPath: 'poster',
-  episodeCount: 2,
-  seasonNumber: 2,
-  airDate: '',
-  overview: '',
-);
-
-final testSeason = testSeasonTVSeriesModel.toEntity();
-
-final testSeasonMap = testSeasonTVSeriesModel.toJson();

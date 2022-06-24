@@ -35,20 +35,20 @@ void main() {
   });
 
   final tTVSeries = TVSeries(
-      backdropPath: "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg",
-      firstAirDate: "2022-03-24",
-      genreIds: [10759, 10765],
-      id: 52814,
-      name: "Halo",
-      originCountry: ["US"],
-      originalLanguage: "en",
-      originalName: "Halo",
-      overview:
-      "Depicting an epic 26th-century conflict between humanity and an alien threat known as the Covenant, the series weaves deeply drawn personal stories with action, adventure and a richly imagined vision of the future.",
-      popularity: 7348.55,
-      posterPath: "/nJUHX3XL1jMkk8honUZnUmudFb9.jpg",
-      voteAverage: 8.7,
-      voteCount: 472
+    backdropPath: "/4g5gK5eGWZg8swIZl6eX2AoJp8S.jpg",
+    firstAirDate: "2003-10-21",
+    genreIds: [18],
+    id: 11250,
+    name: "Hidden Passion",
+    originCountry: ["CO"],
+    originalLanguage: "es",
+    originalName: "Pasión de gavilanes",
+    overview:
+    "The Reyes-Elizondo's idyllic lives are shattered by a murder charge against Eric and León.",
+    popularity: 1747.047,
+    posterPath: "/lWlsZIsrGVWHtBeoOeLxIKDd9uy.jpg",
+    voteAverage: 7.6,
+    voteCount: 1803,
   );
   final tTVSeriesList = <TVSeries>[tTVSeries];
 
