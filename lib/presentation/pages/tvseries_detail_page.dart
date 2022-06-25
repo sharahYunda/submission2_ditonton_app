@@ -158,7 +158,7 @@ class DetailContent extends StatelessWidget {
                               _showGenres(tvSeries.genres),
                             ),
                             Text(
-                              _formattedDuration(tvSeries.episodeRunTime[0]),
+                              _showDuration(tvSeries.episodeRunTime[0]),
                             ),
                             Row(
                               children: [
