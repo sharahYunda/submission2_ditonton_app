@@ -7,19 +7,22 @@ import 'dart:convert' as _i17;
 import 'dart:typed_data' as _i18;
 
 import 'package:dartz/dartz.dart' as _i2;
+import 'package:ditonton/common/db/database_helper.dart' as _i14;
 import 'package:ditonton/common/failure.dart' as _i7;
-import 'package:ditonton/data/datasources/db/database_helper.dart' as _i14;
-import 'package:ditonton/data/datasources/tvseries_local_data_source.dart'
+import 'package:ditonton/movies/data/models/movie_table.dart' as _i16;
+import 'package:ditonton/tv_series/data/datasources/tvseries_local_data_source.dart'
     as _i12;
-import 'package:ditonton/data/datasources/tvseries_remote_data_source.dart'
+import 'package:ditonton/tv_series/data/datasources/tvseries_remote_data_source.dart'
     as _i10;
-import 'package:ditonton/data/models/movie_table.dart' as _i16;
-import 'package:ditonton/data/models/tvseries_detail_model.dart' as _i3;
-import 'package:ditonton/data/models/tvseries_model.dart' as _i11;
-import 'package:ditonton/data/models/tvseries_table.dart' as _i13;
-import 'package:ditonton/domain/entities/tv_series.dart' as _i8;
-import 'package:ditonton/domain/entities/tv_series_detail.dart' as _i9;
-import 'package:ditonton/domain/repositories/tvseries_repository.dart' as _i5;
+import 'package:ditonton/tv_series/data/models/tvseries_detail_model.dart'
+    as _i3;
+import 'package:ditonton/tv_series/data/models/tvseries_model.dart' as _i11;
+import 'package:ditonton/tv_series/data/models/tvseries_table.dart' as _i13;
+import 'package:ditonton/tv_series/domain/entities/tv_series.dart' as _i8;
+import 'package:ditonton/tv_series/domain/entities/tv_series_detail.dart'
+    as _i9;
+import 'package:ditonton/tv_series/domain/repositories/tvseries_repository.dart'
+    as _i5;
 import 'package:http/http.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i15;

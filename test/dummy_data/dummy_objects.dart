@@ -1,11 +1,11 @@
-import 'package:ditonton/data/models/movie_table.dart';
-import 'package:ditonton/data/models/tvseries_table.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/entities/movie_detail.dart';
-import 'package:ditonton/domain/entities/season_tvseries.dart';
-import 'package:ditonton/domain/entities/tv_series.dart';
-import 'package:ditonton/domain/entities/tv_series_detail.dart';
+import 'package:ditonton/movies/data/models/movie_table.dart';
+import 'package:ditonton/tv_series/data/models/tvseries_table.dart';
+import 'package:ditonton/movies/domain/entities/genre.dart';
+import 'package:ditonton/movies/domain/entities/movie.dart';
+import 'package:ditonton/movies/domain/entities/movie_detail.dart';
+import 'package:ditonton/tv_series/domain/entities/season_tvseries.dart';
+import 'package:ditonton/tv_series/domain/entities/tv_series.dart';
+import 'package:ditonton/tv_series/domain/entities/tv_series_detail.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -61,6 +61,9 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+final tQ = "Spider Man";
+final tError = 'Server Failure';
+final tId = 1;
 
 // tv series data
 final testTVSeries = TVSeries(
