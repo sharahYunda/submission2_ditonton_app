@@ -70,6 +70,7 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
   }
 }
 
+// ignore: must_be_immutable
 class DetailContent extends StatefulWidget {
   final TVSeriesDetail tvSeries;
   late bool isTVSeriesAddedWatchlist;

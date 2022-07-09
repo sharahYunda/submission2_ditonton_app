@@ -1,11 +1,11 @@
 part of 'on_the_air_tvseries_bloc.dart';
 
-abstract class OnTheAirTvseriesEvent extends Equatable{
-  const OnTheAirTvseriesEvent();
+abstract class SeriesOnTheAirEvent extends Equatable{
+  const SeriesOnTheAirEvent();
 
   
 }
-class OnTheAirTvseriesShow extends OnTheAirTvseriesEvent {
+class OnTheAirTvseriesShow extends SeriesOnTheAirEvent {
     @override
   List<Object?> get props => [];
 }

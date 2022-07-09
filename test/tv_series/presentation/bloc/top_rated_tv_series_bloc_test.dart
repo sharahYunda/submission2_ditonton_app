@@ -71,7 +71,7 @@ void main() {
       act: (bloc) => bloc.add(OnSeriesTopRatedShow()),
       expect: () => [
         SeriesTopRatedLoading(),
-        TopRatedTvSeriesError('Server Failure'),
+        SeriesTopRatedError('Server Failure'),
       ],
       verify: (bloc) => SeriesTopRatedLoading(),
     );

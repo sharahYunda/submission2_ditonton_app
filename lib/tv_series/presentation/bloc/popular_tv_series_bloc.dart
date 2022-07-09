@@ -8,10 +8,10 @@ import 'package:meta/meta.dart';
 part 'popular_tv_series_event.dart';
 part 'popular_tv_series_state.dart';
 
-class PopularTvSeriesBloc extends Bloc<PopularTvSeriesEvent, SeriesPopularState> {
+class SeriesPopularBloc extends Bloc<SeriesPopularEvent, SeriesPopularState> {
   final GetPopularTVSeries _getPopularTvSeries;
 
-  PopularTvSeriesBloc(this._getPopularTvSeries) : super(SeriesPopularEmpty()) {
+  SeriesPopularBloc(this._getPopularTvSeries) : super(SeriesPopularEmpty()) {
     on<OnPopularTvSeriesShow>((event, emit) async {
       emit(SeriesPopularLoading());
       final result = await _getPopularTvSeries.execute();

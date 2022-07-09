@@ -1,23 +1,23 @@
 part of 'on_the_air_tvseries_bloc.dart';
 
-abstract class OnTheAirTvseriesState extends Equatable{
-  const OnTheAirTvseriesState();
+abstract class SeriesOnTheAirState extends Equatable{
+  const SeriesOnTheAirState();
 
   @override
   List<Object> get props => [];
 }
 
-class OnTheAirTvseriesEmpty extends OnTheAirTvseriesState {
+class OnTheAirTvseriesEmpty extends SeriesOnTheAirState {
   @override
   List<Object> get props => [];
 }
 
-class OnTheAirTvseriesLoading extends OnTheAirTvseriesState {
+class OnTheAirTvseriesLoading extends SeriesOnTheAirState {
   @override
   List<Object> get props => [];
 }
 
-class OnTheAirTvseriesHasData extends OnTheAirTvseriesState {
+class OnTheAirTvseriesHasData extends SeriesOnTheAirState {
   final List<TVSeries> result;
 
   OnTheAirTvseriesHasData(this.result);
@@ -26,7 +26,7 @@ class OnTheAirTvseriesHasData extends OnTheAirTvseriesState {
   List<Object> get props => [result];
 }
 
-class OnTheAirTvseriesError extends OnTheAirTvseriesState {
+class OnTheAirTvseriesError extends SeriesOnTheAirState {
   final String message;
 
   OnTheAirTvseriesError(this.message);

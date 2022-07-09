@@ -1,4 +1,5 @@
 import 'package:ditonton/common/db/database_helper.dart';
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/movies/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton/movies/data/datasources/movie_remote_data_source.dart';
 import 'package:ditonton/movies/presentation/bloc/movies_detail_bloc.dart';
@@ -42,7 +43,6 @@ import 'package:ditonton/tv_series/presentation/bloc/search_tv_series_bloc.dart'
 import 'package:ditonton/tv_series/presentation/bloc/top_rated_tv_series_bloc.dart';
 import 'package:ditonton/tv_series/presentation/bloc/tvseries_detail_bloc.dart';
 import 'package:ditonton/tv_series/presentation/bloc/watchlist_tv_series_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
 import 'movies/presentation/bloc/movie_recomendation_bloc.dart';
@@ -115,11 +115,11 @@ void init() {
         ),
   );
   locator.registerFactory(
-        () => OnTheAirTvseriesBloc(locator(),
+        () => SeriesOnTheAirBloc(locator(),
         ),
   );
   locator.registerFactory(
-        () => PopularTvSeriesBloc(locator(),
+        () => SeriesPopularBloc(locator(),
         ),
   );
   locator.registerFactory(
@@ -191,5 +191,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }

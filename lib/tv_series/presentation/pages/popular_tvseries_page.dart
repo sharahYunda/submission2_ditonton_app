@@ -15,7 +15,7 @@ class _PopularTVSeriesPageState extends State<PopularTVSeriesPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<PopularTvSeriesBloc>().add(OnPopularTvSeriesShow());
+      context.read<SeriesPopularBloc>().add(OnPopularTvSeriesShow());
     });
   }
 
@@ -27,7 +27,7 @@ class _PopularTVSeriesPageState extends State<PopularTVSeriesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<PopularTvSeriesBloc, SeriesPopularState>(
+        child: BlocBuilder<SeriesPopularBloc, SeriesPopularState>(
           builder: (context, state) {
             if (state is SeriesPopularLoading) {
               return Center(

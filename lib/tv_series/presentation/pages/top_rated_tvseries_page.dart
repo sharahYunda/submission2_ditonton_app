@@ -1,9 +1,7 @@
-import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/tv_series/presentation/bloc/top_rated_tv_series_bloc.dart';
 import 'package:ditonton/tv_series/presentation/widgets/tvseries_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 
 class TopRatedTVSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/top-rated-tv-series';
@@ -44,7 +42,7 @@ class _TopRatedTVSeriesPageState extends State<TopRatedTVSeriesPage> {
                 },
                 itemCount: result.length,
               );
-            } else if (state is TopRatedTvSeriesError) {
+            } else if (state is SeriesTopRatedError) {
               return Center(
                 key: Key('error_message'),
                 child: Text(state.message),

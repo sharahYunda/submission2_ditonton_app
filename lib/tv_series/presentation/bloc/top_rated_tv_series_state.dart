@@ -25,10 +25,10 @@ class SeriesTopRatedHasData extends SeriesTopRatedState {
   List<Object> get props => [result];
 }
 
-class TopRatedTvSeriesError extends SeriesTopRatedState {
+class SeriesTopRatedError extends SeriesTopRatedState {
   final String message;
 
-  TopRatedTvSeriesError(this.message);
+  SeriesTopRatedError(this.message);
 
   @override
   List<Object> get props => [message];

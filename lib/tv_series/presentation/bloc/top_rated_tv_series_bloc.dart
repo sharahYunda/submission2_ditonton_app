@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:ditonton/tv_series/domain/entities/tv_series.dart';
 import 'package:ditonton/tv_series/domain/usecases/get_top_rated_tvseries.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 part 'top_rated_tv_series_event.dart';
 part 'top_rated_tv_series_state.dart';
@@ -17,7 +16,7 @@ class SeriesTopRatedBloc
       final result = await getTopRatedTVSeries.execute();
       result.fold(
             (failure) {
-          emit(TopRatedTvSeriesError(failure.message));
+          emit(SeriesTopRatedError(failure.message));
         },
             (data) {
           if (data.isEmpty) {

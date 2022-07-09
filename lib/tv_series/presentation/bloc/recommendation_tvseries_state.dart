@@ -27,7 +27,7 @@ class SeriesRecommendationHasData extends SeriesRecommendationState {
 }
 
 class SeriesRecommendationError extends SeriesRecommendationState {
-  String message;
+  final String message;
   SeriesRecommendationError(this.message);
 
   @override

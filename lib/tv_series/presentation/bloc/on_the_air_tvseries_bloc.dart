@@ -7,10 +7,10 @@ import 'package:equatable/equatable.dart';
 part 'on_the_air_tvseries_event.dart';
 part 'on_the_air_tvseries_state.dart';
 
-class OnTheAirTvseriesBloc extends Bloc<OnTheAirTvseriesEvent, OnTheAirTvseriesState> {
+class SeriesOnTheAirBloc extends Bloc<SeriesOnTheAirEvent, SeriesOnTheAirState> {
  final GetOnTheAirTVSeries getOnTheAirTVSeries;
 
-  OnTheAirTvseriesBloc(this.getOnTheAirTVSeries) : super((OnTheAirTvseriesEmpty())) {
+  SeriesOnTheAirBloc(this.getOnTheAirTVSeries) : super((OnTheAirTvseriesEmpty())) {
     on<OnTheAirTvseriesShow>((event, emit) async {
       emit(OnTheAirTvseriesLoading());
       final result = await getOnTheAirTVSeries.execute();

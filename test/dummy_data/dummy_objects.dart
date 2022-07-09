@@ -133,3 +133,4 @@ final testTVSeriesDetail = TVSeriesDetail(
   voteAverage: 7.6,
   voteCount: 1803,
 );
+final tTvList = <TVSeries>[];

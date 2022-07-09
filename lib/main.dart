@@ -1,4 +1,5 @@
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/movies/presentation/bloc/movie_recomendation_bloc.dart';
 import 'package:ditonton/movies/presentation/bloc/movies_detail_bloc.dart';
@@ -29,13 +30,17 @@ import 'package:ditonton/tv_series/presentation/pages/popular_tvseries_page.dart
 import 'package:ditonton/tv_series/presentation/pages/tvseries_search_page.dart';
 import 'package:ditonton/tv_series/presentation/pages/top_rated_tvseries_page.dart';
 import 'package:ditonton/tv_series/presentation/pages/watchlist_tvseries_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await HttpSSLPinning.init();
   di.init();
   runApp(MyApp());
 }
@@ -79,10 +84,10 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<WatchlistStatusBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<OnTheAirTvseriesBloc>(),
+          create: (_) => di.locator<SeriesOnTheAirBloc>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<PopularTvSeriesBloc>(),
+          create: (_) => di.locator<SeriesPopularBloc>(),
         ),
         BlocProvider(
           create: (_) => di.locator<SeriesRecommendationBloc>(),

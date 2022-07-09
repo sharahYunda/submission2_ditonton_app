@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_null_comparison, must_be_immutable
-
 import 'package:ditonton/tv_series/domain/entities/tv_series.dart';
 import 'package:equatable/equatable.dart';
 
@@ -20,19 +18,19 @@ class TVSeriesModel extends Equatable {
     required this.popularity,
   });
 
-  int id;
-  int voteCount;
-  String name;
-  String overview;
-  String posterPath;
-  String backdropPath;
-  String firstAirDate;
-  String originalName;
-  String originalLanguage;
-  double popularity;
-  double voteAverage;
-  List<int> genreIds;
-  List<String> originCountry;
+  final int id;
+  final int voteCount;
+  final String name;
+  final String overview;
+  final String posterPath;
+  final String backdropPath;
+  final String firstAirDate;
+  final String originalName;
+  final String originalLanguage;
+  final double popularity;
+  final double voteAverage;
+  final List<int> genreIds;
+  final List<String> originCountry;
 
 
   factory TVSeriesModel.fromJson(Map<String, dynamic> json) => TVSeriesModel(
@@ -57,6 +55,7 @@ class TVSeriesModel extends Equatable {
     "name": name,
     "overview": overview,
     "poster_path": posterPath,
+    // ignore: unnecessary_null_comparison
     "backdrop_path": backdropPath == null ? null : backdropPath,
     "first_air_date": firstAirDate,
     "original_name": originalName,

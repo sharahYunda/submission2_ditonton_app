@@ -26,7 +26,7 @@ class SeriesDetailHasData extends SeriesDetailState {
 }
 
 class SeriesDetailError extends SeriesDetailState {
-  String message;
+  final String message;
   SeriesDetailError(this.message);
 
   @override

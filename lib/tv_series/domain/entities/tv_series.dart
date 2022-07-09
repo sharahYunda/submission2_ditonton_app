@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:equatable/equatable.dart';
 
 class TVSeries extends Equatable {
@@ -18,34 +20,25 @@ class TVSeries extends Equatable {
   });
 
   TVSeries.watchlist({
-    this.backdropPath,
-    this.genreIds,
-    this.originalName,
-    this.originCountry,
-    this.originalLanguage,
-    this.popularity,
-    this.firstAirDate,
-    this.voteAverage,
-    this.voteCount,
     required this.id,
     required this.overview,
     required this.posterPath,
     required this.name,
   });
 
-  final String? backdropPath;
-  final List<int>? genreIds;
-  final int id;
-  final String? originalName;
-  final List<String>? originCountry;
-  final String? originalLanguage;
-  final String? overview;
-  final double? popularity;
-  final String? posterPath;
-  final String? firstAirDate;
-  final String? name;
-  final double? voteAverage;
-  final int? voteCount;
+  String? backdropPath;
+  List<int>? genreIds;
+  int id;
+  String? originalName;
+  List<String>? originCountry;
+  String? originalLanguage;
+  String? overview;
+  double? popularity;
+  String? posterPath;
+  String? firstAirDate;
+  String? name;
+  double? voteAverage;
+  int? voteCount;
 
   @override
   List<Object?> get props => [

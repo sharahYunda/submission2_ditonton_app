@@ -1,4 +1,4 @@
-import 'package:ditonton/movies//data/models/genre_model.dart';
+import 'package:ditonton/movies/data/models/genre_model.dart';
 import 'package:ditonton/tv_series/data/models/season_tvseries_model.dart';
 
 import 'package:ditonton/tv_series/domain/entities/tv_series_detail.dart';

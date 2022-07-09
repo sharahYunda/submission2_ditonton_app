@@ -12,12 +12,12 @@ import 'popular_tv_series_bloc_test.mocks.dart';
 
 @GenerateMocks([GetPopularTVSeries])
 void main() {
-  late PopularTvSeriesBloc popularTvSeriesBloc;
+  late SeriesPopularBloc popularTvSeriesBloc;
   late MockGetPopularTVSeries mockGetPopularTvSeries;
 
   setUp(() {
     mockGetPopularTvSeries = MockGetPopularTVSeries();
-    popularTvSeriesBloc = PopularTvSeriesBloc(mockGetPopularTvSeries);
+    popularTvSeriesBloc = SeriesPopularBloc(mockGetPopularTvSeries);
   });
 
   final tTvSeries = TVSeries(
@@ -43,7 +43,7 @@ void main() {
       expect(popularTvSeriesBloc.state, SeriesPopularEmpty());
     });
 
-    blocTest<PopularTvSeriesBloc, SeriesPopularState>(
+    blocTest<SeriesPopularBloc, SeriesPopularState>(
       'Should emit [Loading, HasData] when data is gotten successfully',
       build: () {
         when(mockGetPopularTvSeries.execute())
@@ -61,7 +61,7 @@ void main() {
       },
     );
 
-    blocTest<PopularTvSeriesBloc, SeriesPopularState>(
+    blocTest<SeriesPopularBloc, SeriesPopularState>(
       'Should emit [Loading, Error] when get search is unsuccessful',
       build: () {
         when(mockGetPopularTvSeries.execute())

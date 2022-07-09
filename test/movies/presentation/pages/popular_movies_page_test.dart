@@ -1,5 +1,3 @@
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/movies/domain/entities/movie.dart';
 import 'package:ditonton/movies/presentation/bloc/popular_movies_bloc.dart';
 import 'package:ditonton/movies/presentation/pages/popular_movies_page.dart';
 import 'package:flutter/material.dart';

@@ -27,8 +27,8 @@ class _TVSeriesPageState extends State<TVSeriesPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<OnTheAirTvseriesBloc>().add(OnTheAirTvseriesShow());
-      context.read<PopularTvSeriesBloc>().add(OnPopularTvSeriesShow());
+      context.read<SeriesOnTheAirBloc>().add(OnTheAirTvseriesShow());
+      context.read<SeriesPopularBloc>().add(OnPopularTvSeriesShow());
       context.read<SeriesTopRatedBloc>().add(OnSeriesTopRatedShow());
     });
   }
@@ -145,7 +145,7 @@ class _TVSeriesPageState extends State<TVSeriesPage> {
                 'On Air',
                 style: kHeading6,
               ),
-              BlocBuilder<OnTheAirTvseriesBloc, OnTheAirTvseriesState>(
+              BlocBuilder<SeriesOnTheAirBloc, SeriesOnTheAirState>(
                 builder: (context, state) {
                   if (state is OnTheAirTvseriesLoading) {
                     return Center(
@@ -168,7 +168,7 @@ class _TVSeriesPageState extends State<TVSeriesPage> {
                 onTap: () =>
                     Navigator.pushNamed(context, PopularTVSeriesPage.ROUTE_NAME),
               ),
-              BlocBuilder<PopularTvSeriesBloc, SeriesPopularState>(
+              BlocBuilder<SeriesPopularBloc, SeriesPopularState>(
                 builder: (context, state) {
                   if (state is SeriesPopularLoading) {
                     return Center(
@@ -200,7 +200,7 @@ class _TVSeriesPageState extends State<TVSeriesPage> {
                   } else if (state is SeriesTopRatedHasData) {
                     final data = state.result;
                     return TVSeriesList(data);
-                  } else if (state is TopRatedTvSeriesError) {
+                  } else if (state is SeriesTopRatedError) {
                     return Center(
                       child: Text(state.message),
                     );

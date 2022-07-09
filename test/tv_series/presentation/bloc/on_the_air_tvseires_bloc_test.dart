@@ -12,13 +12,13 @@ import 'on_the_air_tvseires_bloc_test.mocks.dart';
 
 @GenerateMocks([GetOnTheAirTVSeries])
 void main() {
-  late OnTheAirTvseriesBloc onTheAirTvseriesBloc;
+  late SeriesOnTheAirBloc onTheAirTvseriesBloc;
   late MockGetOnTheAirTVSeries mockOnTheAirTvseries;
 
   setUp(() {
     mockOnTheAirTvseries = MockGetOnTheAirTVSeries();
     onTheAirTvseriesBloc =
-        OnTheAirTvseriesBloc(mockOnTheAirTvseries);
+        SeriesOnTheAirBloc(mockOnTheAirTvseries);
   });
 
   final tTvSeries = TVSeries(
@@ -44,7 +44,7 @@ void main() {
       expect(onTheAirTvseriesBloc.state, OnTheAirTvseriesEmpty());
     });
 
-    blocTest<OnTheAirTvseriesBloc, OnTheAirTvseriesState>(
+    blocTest<SeriesOnTheAirBloc, SeriesOnTheAirState>(
       'Should emit [Loading, HasData] when data is gotten successfully',
       build: () {
         when(mockOnTheAirTvseries.execute())
@@ -62,7 +62,7 @@ void main() {
       },
     );
 
-    blocTest<OnTheAirTvseriesBloc, OnTheAirTvseriesState>(
+    blocTest<SeriesOnTheAirBloc, SeriesOnTheAirState>(
       'Should emit [Loading, Error] when get search is unsuccessful',
       build: () {
         when(mockOnTheAirTvseries.execute())

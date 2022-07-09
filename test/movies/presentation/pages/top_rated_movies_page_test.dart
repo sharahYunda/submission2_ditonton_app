@@ -52,6 +52,21 @@ void main() {
   );
 
   testWidgets(
+    "Page should display when data is loaded",
+        (WidgetTester tester) async {
+      when(() => bloc.stream)
+          .thenAnswer((_) => Stream.value(TopRatedMoviesLoaded(testMovieList)));
+      when(() => bloc.state).thenReturn(TopRatedMoviesLoaded(testMovieList));
+
+      final listViewFinder = find.byType(ListView);
+
+      await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
+
+      expect(listViewFinder, findsOneWidget);
+    },
+  );
+
+  testWidgets(
     "Page should display text with message when Error",
         (WidgetTester tester) async {
       when(() => bloc.stream)

@@ -5,13 +5,14 @@ import 'package:ditonton/movies/presentation/bloc/nowplaying_movie_bloc.dart';
 import 'package:ditonton/movies/presentation/bloc/popular_movies_bloc.dart';
 import 'package:ditonton/movies/presentation/bloc/top_rated_movies_bloc.dart';
 import 'package:ditonton/movies/presentation/pages/about_page.dart';
-import 'package:ditonton/tv_series/presentation/pages/home_tvseries_page.dart';
 import 'package:ditonton/movies/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/movies/presentation/pages/popular_movies_page.dart';
 import 'package:ditonton/movies/presentation/pages/search_page.dart';
 import 'package:ditonton/movies/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/movies/presentation/pages/watchlist_movies_page.dart';
+import 'package:ditonton/tv_series/presentation/pages/home_tvseries_page.dart';
 import 'package:ditonton/tv_series/presentation/pages/watchlist_tvseries_page.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,7 +62,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               leading: Icon(Icons.movie),
               title: Text('Movies'),
               onTap: () {
-                Navigator.pushNamed(context,HomeMoviePage.ROUTE_NAME);
+                Navigator.pop(context);
               },
             ),
             ListTile(
@@ -95,7 +96,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               leading: Icon(Icons.movie),
               title: Text('TV Series'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, TVSeriesPage.ROUTE_NAME);
               },
             ),
             ListTile(
@@ -127,6 +128,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         actions: [
           IconButton(
             onPressed: () {
+              FirebaseCrashlytics.instance.crash();
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),

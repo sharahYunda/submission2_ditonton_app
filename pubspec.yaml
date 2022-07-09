@@ -41,6 +41,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   rxdart: ^0.27.1
   mocktail: ^0.3.0
+  firebase_core: ^1.19.1
+  firebase_crashlytics: ^2.8.4
 
 dev_dependencies:
   mockito: ^5.0.8
@@ -63,6 +65,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - certificates/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
