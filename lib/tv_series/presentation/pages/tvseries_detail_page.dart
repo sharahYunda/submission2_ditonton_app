@@ -198,7 +198,7 @@ class _DetailContentState extends State<DetailContent> {
                               _showGenres(widget.tvSeries.genres),
                             ),
                             Text(
-                              _showDuration(widget.tvSeries.episodeRunTime[0]),
+                              _formattedDuration(widget.tvSeries.episodeRunTime),
                             ),
                             Row(
                               children: [
@@ -415,4 +415,6 @@ class _DetailContentState extends State<DetailContent> {
       return '${minutes}m';
     }
   }
+  String _formattedDuration(List<int> runtimes) =>
+      runtimes.map((runtime) => _showDuration(runtime)).join(", ");
 }
